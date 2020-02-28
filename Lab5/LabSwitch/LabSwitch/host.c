@@ -343,7 +343,8 @@ while(1) {
 				job_q_add(&job_q, new_job);
 					
 				break;
-							case 'd': /*Request a downlaod from another host */
+				
+			case 'd': /*Request a downlaod from another host */
 				sscanf(man_msg, "%d %s", &dst, name);
 				/*create packet*/
 				new_packet = (struct packet *)
