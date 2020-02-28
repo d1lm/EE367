@@ -343,6 +343,28 @@ while(1) {
 				job_q_add(&job_q, new_job);
 					
 				break;
+							case 'd': /*Request a downlaod from another host */
+				sscanf(man_msg, "%d %s", &dst, name);
+				/*create packet*/
+				new_packet = (struct packet *)
+					malloc(sizeof(struct packet));
+				for(i=0; name[i] !='\0'; ++i){
+					new_packet->payload[i] = name[i];
+				}
+				new_packet->length = i;
+				new_packet->src = (char) host_id;
+				new_packet->dst = (char) dst;
+				new_packet->type = (char) PKT_FILE_DOWNLOAD_REQ;
+
+				//Create job to send packet
+				new_job = (struct host_job *)
+					malloc(sizeof(struct host_job));
+				new_job->type = JOB_SEND_PKT_ALL_PORTS;
+				new_job->file_upload_dst = dst;
+				new_job->packet = new_packet;
+				job_q_add(&job_q, new_job);
+
+				break;
 			default:
 			;
 		}
