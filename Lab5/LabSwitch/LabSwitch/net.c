@@ -20,7 +20,7 @@
 #define _GNU_SOURCE
 #include <fcntl.h>
 #include <unistd.h>
-#include <switch.h>
+#include "switch.h"
 #include "main.h"
 #include "man.h"
 #include "host.h"
