@@ -15,6 +15,7 @@
 #include "man.h"
 #include "host.h"
 #include "packet.h"
+#include "switch.h"
 
 #define MAX_FILE_BUFFER 1000
 #define MAX_MSG_LENGTH 100
